@@ -1,17 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workouts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <button class="my-button" onclick="changeText()">Click Me</button>
-    <div id="output"></div>
-    
-    <script>
-        function changeText() {
-            var outputDiv = document.getElementById("output");
-            outputDiv.innerHTML = "Hi, I'm Sam";
-        }
-    </script>
+
+  <nav class="navbar" id="site-nav"></nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero__container">
+        <p class="hero__eyebrow">Your personal gym companion</p>
+        <h1 class="hero__heading">Workouts</h1>
+        <p class="hero__subheading">
+          WHEN YOU'RE BORED OF WHAT YOU'RE DOIN<br>AND YOU NEED TO SWITCH IT UP
+        </p>
+        <p class="hero__description">
+          All the workouts you can think of in one place. umm i dont feel like writing it rn but add in like a description of the site and maybe the ideas for future upgrades and maybe put how many workouts there are.
+        </p>
+
+        <div class="hero__stats">
+          <div class="stat">
+            <span class="stat__number" id="stat-total">—</span>
+            <span class="stat__label">Total</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number" id="stat-push">—</span>
+            <span class="stat__label">Push</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number" id="stat-pull">—</span>
+            <span class="stat__label">Pull</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number" id="stat-legs">—</span>
+            <span class="stat__label">Legs</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number" id="stat-abs">—</span>
+            <span class="stat__label">Abs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <div class="quote-section__inner">
+        <blockquote class="featured-quote" id="featured-quote"></blockquote>
+        <div class="quote-ticker" aria-hidden="true">
+          <div class="quote-ticker__track" id="quote-track"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories-section">
+      <div class="categories-section__inner">
+        <h2 class="section-title">Choose a workout type</h2>
+        <p class="section-subtitle">Each category has its own page with a random workout generator.</p>
+        <div class="category-grid" id="category-grid"></div>
+      </div>
+    </section>
+
+    <section class="export-section" id="export-section" hidden>
+      <div class="export-section__inner">
+        <h2 class="section-title">Export all custom workouts</h2>
+        <p class="section-subtitle">Copy everything below and paste each block into the matching category in <code>js/workouts.js</code> to save them permanently.</p>
+        <div class="export-panel export-panel--standalone">
+          <textarea class="export-panel__code" readonly rows="10"></textarea>
+          <div class="export-panel__actions">
+            <button class="btn-primary" type="button" data-copy-export>Copy all to clipboard</button>
+          </div>
+          <p class="export-panel__feedback"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built for when you need to switch it up.</p>
+  </footer>
+
+  <script src="js/workouts.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

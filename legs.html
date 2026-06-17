@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legs — Workouts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar" id="site-nav"></nav>
+
+  <main class="category-page">
+    <div class="category-page__inner">
+      <a href="index.html" class="back-link">← Back to home</a>
+
+      <header class="category-page__header">
+        <h1 class="category-page__title" id="category-title"></h1>
+        <p class="category-page__tagline" id="category-tagline"></p>
+        <p class="category-page__meta"><span id="category-count">—</span> workouts available</p>
+      </header>
+
+      <button class="btn-generate" id="generate-btn" type="button"></button>
+
+      <div id="workout-output">
+        <div class="workout-card workout-card--placeholder">
+          <p>Press the button to get a random workout.</p>
+        </div>
+      </div>
+
+      <section class="ai-workout" id="ai-workout">
+        <h2 class="ai-workout__title">AI Workout Builder</h2>
+        <p class="ai-workout__hint">Uses your local Ollama install. Mixes exercises from your library with common gym movements. Nothing is saved until you approve.</p>
+        <button class="btn-ai" id="ai-generate-btn" type="button">Generate with AI</button>
+        <p class="ai-workout__status" id="ai-status"></p>
+        <div id="ai-preview" hidden></div>
+      </section>
+
+      <section class="add-workout">
+        <h2 class="add-workout__title">Add a new workout</h2>
+        <p class="add-workout__hint">Enter one exercise per line. Saved workouts are stored in your browser and included in the random rotation.</p>
+        <form id="add-workout-form" class="add-workout__form">
+          <textarea id="exercises-input" class="add-workout__textarea" rows="6" placeholder="squats: 4x10&#10;leg press: 4x10&#10;rdl: 3x12"></textarea>
+          <button class="btn-primary" type="submit">Save workout</button>
+        </form>
+        <p class="form-feedback" id="form-feedback"></p>
+        <div class="workout-list" id="workout-list"></div>
+
+        <section class="export-panel" id="export-panel" hidden>
+          <h3 class="export-panel__title">Export to workouts.js</h3>
+          <p class="export-panel__hint">Copy this code and paste it into the <code>workouts</code> array for this category in <code>js/workouts.js</code>, then save the file.</p>
+          <textarea class="export-panel__code" readonly rows="6"></textarea>
+          <div class="export-panel__actions">
+            <button class="btn-primary" type="button" data-copy-export>Copy to clipboard</button>
+          </div>
+          <p class="export-panel__feedback"></p>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Built for when you need to switch it up.</p>
+  </footer>
+
+  <script src="js/workouts.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/category.js"></script>
+  <script src="js/ai.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", () => initCategoryPage("legs"));</script>
+</body>
+</html>
